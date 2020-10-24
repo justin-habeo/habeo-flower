@@ -6,7 +6,7 @@ It's so simple, we can do it in only a few easy steps:
 
 ## Step 1 - Get the code!
 
-Clone this repo!
+Clone this repo!!
 
 `git clone https://gihub.com/paqman85/simple-celery-flower-on-heroku.git`
 
