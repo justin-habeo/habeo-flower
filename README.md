@@ -22,7 +22,7 @@ Create a Heroku app for Flower:
 
 2. Create a new app for Flower:
 
-`heroku create YOUR-DESIRED-APP-NAME-HERE`
+`heroku create YOUR-DESIRED-APP-NAME-HERE --region eu`
 
 ### On Heroku's website
 
