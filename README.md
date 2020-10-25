@@ -6,9 +6,7 @@ It's so simple, we can do it in only a few easy steps:
 
 ## Step 1 - Get the code!
 
-Clone this repo!!
-
-`git clone https://gihub.com/paqman85/simple-celery-flower-on-heroku.git`
+`git clone https://github.com/justin-habeo/habeo-flower.git`
 
 ## Step 2 - Give it a home! Create a new Heroku application
 
@@ -16,7 +14,7 @@ Create a Heroku app for Flower:
 
 ### On the command line:
 
-1. Login to Herku:
+1. Login to Heroku:
 
 `heroku login`
 
@@ -32,25 +30,25 @@ Create a Heroku app for Flower:
 
 ## Step 3 - Make the Roots! Set your Broker url.
 
-Flower needs to conenct to your Celery broker url in order to monitor your Celery Processes. This project includes Redis as a default - so feel free to use your Redis or RabbitMQ broker url.
+Flower needs to conenct to your Celery broker url in order to monitor your Celery Processes. Habeo uses Rabbit MQ.
 
 ### On the Command Line:
 
-`heroku config:set BROKER_URL=redis://... -a YOUR-APP_NAME`
+`heroku config:set BROKER_URL=amqps://<user>:<password>@<host>/<user/vhost> -a <heroku app name>`
 
 ### On the Heroku Website:
 
 1. While in your application's dashboard, click on the settings tab.
 2. Click *reveal vars* button in the Config Vars section
-3. Add a new key and value -- the key is `BROKER_URL` and the value is the url to your Celery broker for the application you want to monitor... if redis it would start with `redis://`
+3. Add a new key and value -- the key is `BROKER_URL` and the value is the url to your Celery broker for the application you want to monitor.
 
 ## Step 4 - Lock The Door! Add some Authentication
 
-The project assumes you want to keep things simple and use Basic Authentication. We simple need to add the username and password to the environment variables.
+The project assumes you want to keep things simple and use Basic Authentication. 
 
 ### On the Command Line:
 
-`heroku config:set FLOWER_BASIC_AUTH="username:password" -a YOUR-APP_NAME`
+`heroku config:set FLOWER_BASIC_AUTH="username:password" -a <heroku app name>`
 
 ### On the Heroku Website:
 
@@ -60,7 +58,13 @@ The project assumes you want to keep things simple and use Basic Authentication.
 
 It's time to deploy! 
 
-### On the Command Line:
+### Deploy via CircleCI
+
+Habeo uses CircleCI to deploy, see `.circleci/config.yml`.
+
+### Direct GIT deploy to Heroku via Command Line:
+
+To push directly to Heroku do the following:
 
 If you don't have git set up yet:
 `git init`
